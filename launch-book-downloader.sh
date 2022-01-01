@@ -124,10 +124,9 @@ do
 done
 
 # TODO: add rename command here
-# etc:
-# rename 'unless (/0+[0-9]{4}.txt/) {s/^([0-9]{1,3}\.txt)$/000$1/g;s/0*([0-9]{4}\..*)/$1/}' *
-# https://stackoverflow.com/questions/3672301/linux-shell-script-to-add-leading-zeros-to-file-names
-# https://www.howtogeek.com/423214/how-to-use-the-rename-command-on-linux/
+# etc: the following adds up to two zeros, need to count the number of files and go from there
+# rename -e 's/\d+/sprintf("%03d",$&)/e' -- *.cbz
+# https://unix.stackexchange.com/questions/346917/rename-files-to-add-leading-zeros-to-numbers
 
 rm -rf /tmp/book/*
 echo "books downloaded:"
