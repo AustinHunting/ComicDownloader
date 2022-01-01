@@ -122,6 +122,13 @@ do
 
     cd $LAND
 done
+
+# TODO: add rename command here
+# etc:
+# rename 'unless (/0+[0-9]{4}.txt/) {s/^([0-9]{1,3}\.txt)$/000$1/g;s/0*([0-9]{4}\..*)/$1/}' *
+# https://stackoverflow.com/questions/3672301/linux-shell-script-to-add-leading-zeros-to-file-names
+# https://www.howtogeek.com/423214/how-to-use-the-rename-command-on-linux/
+
 rm -rf /tmp/book/*
 echo "books downloaded:"
 ls ~/book/$FILENAME
