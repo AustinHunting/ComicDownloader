@@ -1,5 +1,5 @@
 #!/bin/bash
-# renames all the files is a series of directories to have leading zeros up to 000X 
+# renames all the cbz files in a series of directories to have leading zeros up to 0000X
 BASE=$(pwd)
 for d in */ ; do
     echo "working with $d"
@@ -12,6 +12,8 @@ for d in */ ; do
         rename -e 's/\d+/sprintf("%03d",$&)/e' -- *.cbz
     elif [ "$DIGITS" -eq "4" ]; then
         rename -e 's/\d+/sprintf("%04d",$&)/e' -- *.cbz
+    elif [ "$DIGITS" -eq "5" ]; then
+        rename -e 's/\d+/sprintf("%05d",$&)/e' -- *.cbz
     fi
     cd "$BASE"
 done
