@@ -112,7 +112,6 @@ do
 
     for image in *
     do
-        # might want to consider numbering these "001.cbz" over "1.cbz"
         mv "$image" "$(echo $image | grep -o RCO[0-9]\* | grep -o [0-9]\*).jpg"
     done
 
@@ -120,8 +119,22 @@ do
     mkdir -p ~/book/$FILENAME
     mv ./*.cbz ~/book/$FILENAME
 
+    # NOTE: untested
+    # mass rename of dir files, can be made better by passing the var to rename
+    # cd ~/book/$FILENAME
+    # COUNT=$(ls -1 | grep -c .cbz)
+    # DIGITS=$(echo "${#COUNT}")
+    # if [ "$DIGITS" -eq "2" ]; then
+    #     rename -e 's/\d+/sprintf("%02d",$&)/e' -- *.cbz
+    # elif [ "$DIGITS" -eq "3" ]; then
+    #     rename -e 's/\d+/sprintf("%03d",$&)/e' -- *.cbz
+    # elif [ "$DIGITS" -eq "4" ]; then
+    #     rename -e 's/\d+/sprintf("%04d",$&)/e' -- *.cbz
+    # fi
+
     cd $LAND
 done
+
 rm -rf /tmp/book/*
 echo "books downloaded:"
 ls ~/book/$FILENAME
