@@ -5,6 +5,6 @@ charset-normalizer==2.0.10
 idna==3.3
 requests==2.27.0
 soupsieve==2.3.1
-urllib3==1.26.7
+urllib3==2.6.0
 webdriver-manager==3.5.2
 selenium==4.1.0
